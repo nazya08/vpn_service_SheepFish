@@ -22,8 +22,9 @@ from config import settings
 
 
 urlpatterns = [
-    path('', include('default_auth.urls')),
     path('admin/', admin.site.urls),
+    path('', include('default_auth.urls')),
+    path('', include('users.urls')),
 ]
 
 if settings.DEBUG:
