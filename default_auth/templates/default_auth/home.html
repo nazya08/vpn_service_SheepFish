@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <h1>Welcome to Vpn Service</h1>
+                <p>This is the home page of the Vpn Service. You can find information about our services, latest updates, and more here.</p>
+
+                <section class="my-5">
+                    <h2>Our Services</h2>
+                    <p>We offer a variety of VPN services to meet your needs. Explore our offerings below:</p>
+                    <ul>
+                        <li>Secure VPN connections</li>
+                        <li>High-speed servers</li>
+                        <li>24/7 customer support</li>
+                    </ul>
+                </section>
+
+                <!-- Add custom styles directly here if needed -->
+                <style>
+                    .my-5 {
+                        margin-top: 3rem !important;
+                        margin-bottom: 3rem !important;
+                    }
+                    h1 {
+                        color: #007bff;
+                    }
+                    section {
+                        background-color: #f8f9fa;
+                        padding: 1.5rem;
+                        border-radius: 0.5rem;
+                    }
+                </style>
+            </div>
+        </div>
+    </div>
+{% endblock %}
