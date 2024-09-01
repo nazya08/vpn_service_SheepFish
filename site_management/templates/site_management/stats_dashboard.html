@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center">Statistics Dashboard</h1>
+
+    <h2 class="mt-4">Page Transitions by Website</h2>
+    <table class="table table-striped mt-3">
+        <thead>
+            <tr>
+                <th scope="col">Website</th>
+                <th scope="col">Transitions Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for stat in page_transitions %}
+            <tr>
+                <td>{{ stat.website__name }}</td>
+                <td>{{ stat.transitions_count }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h2 class="mt-5">Traffic by Website</h2>
+    <table class="table table-striped mt-3">
+        <thead>
+            <tr>
+                <th scope="col">Website</th>
+                <th scope="col">Total Uploaded (bytes)</th>
+                <th scope="col">Total Downloaded (bytes)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for stat in traffic_stats %}
+            <tr>
+                <td>{{ stat.website__name }}</td>
+                <td>{{ stat.total_uploaded }}</td>
+                <td>{{ stat.total_downloaded }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

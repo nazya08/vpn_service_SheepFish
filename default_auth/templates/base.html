@@ -7,7 +7,6 @@
     <title>{% block title %}Vpn Service{% endblock %}</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <!-- Your custom CSS -->
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     {% block extra_head %}{% endblock %}
     <style>
@@ -29,11 +28,11 @@
         }
 
         .content {
-            flex: 1; /* Takes up remaining space */
+            flex: 1;
         }
 
         .profile-dropdown {
-            margin-right: 34px; /* Adjust this value as needed */
+            margin-right: 118px;
         }
     </style>
 </head>
@@ -66,6 +65,7 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{% url 'profile' %}">Profile</a>
+                            <a class="dropdown-item" href="{% url 'website_management_main' %}">Websites & Stats Dashboard</a>
                             <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
                         </div>
                     </li>

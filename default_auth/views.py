@@ -27,7 +27,7 @@ class SignupView(FormView):
     """
     template_name = 'default_auth/signup.html'
     form_class = SignupForm
-    success_url = reverse_lazy('home')
+    success_url = reverse_lazy('create_profile')
 
     def form_valid(self, form) -> HttpResponseRedirect:
         """
@@ -100,14 +100,3 @@ def logout_view(request):
     """
     logout(request)
     return redirect(reverse_lazy('home'))
-
-
-class OwnProfileMixin:
-    """
-    Mixin to ensure that the user can view/edit only their own profile.
-    """
-    def get_object(self, queryset=None):
-        obj = super().get_object(queryset)
-        if obj.user != self.request.user:
-            raise Http404("You do not have permission to view this profile.")
-        return obj

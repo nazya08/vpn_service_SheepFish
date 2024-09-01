@@ -19,7 +19,7 @@ class CustomUserManager(BaseUserManager):
 
         if not username:
             if email:
-                username = email.split('@')[0]  # Використовує частину email до '@'
+                username = email.split('@')[0]
             else:
                 username = phone_number
 

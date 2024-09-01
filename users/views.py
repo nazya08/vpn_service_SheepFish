@@ -1,8 +1,11 @@
+"""
+Views for the users app.
+"""
 from django.urls import reverse_lazy
 from django.views.generic import UpdateView, DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-from .forms import ProfileEditForm
+from .forms import ProfileEditForm, ProfileForm
 from .models import Profile
 
 
@@ -27,3 +30,17 @@ class ProfileEditView(LoginRequiredMixin, UpdateView):
 
     def get_object(self, queryset=None):
         return self.request.user.profile
+
+
+class ProfileCreateView(LoginRequiredMixin, UpdateView):
+    model = Profile
+    form_class = ProfileForm
+    template_name = 'users/create_profile.html'
+    success_url = reverse_lazy('home')
+
+    def get_object(self, queryset=None):
+        """
+        Return the profile of the logged-in user.
+        """
+        profile, created = Profile.objects.get_or_create(user=self.request.user)
+        return profile
